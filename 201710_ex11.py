@@ -1,10 +1,10 @@
 # practicepython.py
 #
 # Solution by: Lukasz Sikora
-# Date: 26th October, 2017
+# Date: 27th October, 2017
 #
 #
-# CAsk the user for a number and determine whether the number is prime or not. (For those who have forgotten,
+# Ask the user for a number and determine whether the number is prime or not. (For those who have forgotten,
 # a prime number is a number that has no divisors.). You can (and should!) use your answer to Exercise 4 to help you.
 # Take this opportunity to practice using functions, described below.
 
