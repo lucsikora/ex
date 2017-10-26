@@ -13,12 +13,10 @@ def get_number(message):
     return int(input(message))
 
 def is_prime(num):
-    for i in range(2, num-1):
-        print(i)
+    for i in range(2, num):
         if num % i == 0:
             return 'not a prime'
-        else:
-            return 'prime'
+    return 'prime'
 
 print("Hi, I will tell you if you number is a prime")
 number = get_number("Please choose a number: ")
