@@ -1,7 +1,7 @@
 # practicepython.py
 #
 # Solution by: Lukasz Sikora
-# Date: 25th October, 2017
+# Date: 26th October, 2017
 #
 # This week’s exercise is going to be revisiting an old exercise (see Exercise 5), except require the
 # solution in a different way.
