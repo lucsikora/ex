@@ -9,8 +9,7 @@
 # For practice, write this code inside a function.
 
 def list_edges(lista):
-    return [lista[0], lista[len(lista)-1]]
-
+    return [lista[0], lista[-1]]
 
 a = [5, 10, 15, 20, 25]
 print(list_edges(a))
