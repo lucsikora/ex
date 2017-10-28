@@ -4,7 +4,9 @@
 # Date: 28th October, 2017
 #
 #
-# Write a password generator in Python. Be creative with how you generate passwords - strong passwords have a mix of lowercase letters, uppercase letters, numbers, and symbols. The passwords should be random, generating a new password every time the user asks for a new password. Include your run-time code in a main method.
+# Write a password generator in Python. Be creative with how you generate passwords - strong passwords have a mix of
+# lowercase letters, uppercase letters, numbers, and symbols. The passwords should be random,
+# generating a new password every time the user asks for a new password. Include your run-time code in a main method.
 #
 # Extra:
 # Ask the user how strong they want their password to be. For weak passwords, pick a word or two from a list.
@@ -17,13 +19,15 @@ def gen_pass(pass_size):
 
 
 print("=== PASSWORD GENERATOR ====")
-try:
-    password_size = int(input("How many characters should password contain? "))
-except ValueError:
-    print("Please only use numbers")
-
-print(gen_pass(password_size))
-
-
+user_int = ""
+while user_int != "exit":
+    try:
+        user_int = input("How many characters should password contain? ")
+        print(gen_pass(int(user_int)))
+        break
+    except ValueError:
+        print("Please only use numbers")
+    except NameError:
+        print("Execute program again and type number")
 
 
