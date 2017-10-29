@@ -18,7 +18,8 @@ def gen_pass(pass_size):
     return "".join(str)
 
 
-print("=== PASSWORD GENERATOR ====")
+print("===== PASSWORD GENERATOR ======")
+print("===  Write 'exit' to end  ====")
 user_int = ""
 while user_int != "exit":
     try:
