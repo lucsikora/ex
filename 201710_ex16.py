@@ -17,15 +17,26 @@ def gen_pass(pass_size):
     str = random.sample(pass_pool,pass_size)
     return "".join(str)
 
+def gen_weak_pass():
+    words = ['koala', 'dino', 'pluton', 'athena', 'chucky']
+    generated = random.sample(words, 1)
+    return "".join(generated)
+
+print(gen_weak_pass())
 
 print("===== PASSWORD GENERATOR ======")
 print("===  Write 'exit' to end  ====")
 user_int = ""
 while user_int != "exit":
     try:
-        user_int = input("How many characters should password contain? ")
-        print(gen_pass(int(user_int)))
-        break
+        user_int = input("What type of password you need? [weak, strong]: ")
+        if user_int == 'weak':
+            print(gen_weak_pass())
+            break
+        elif user_int == 'strong':
+            user_int = input("How many characters should password contain? ")
+            print(gen_pass(int(user_int)))
+            break
     except ValueError:
         print("Please only use numbers")
     except NameError:
