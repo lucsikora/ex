@@ -12,9 +12,10 @@ from bs4 import BeautifulSoup
 
 url = 'https://www.nytimes.com/'
 r = requests.get(url)
-r_html = r.textpip
+r_html = r.text
 
-soup = BeautifulSoup(r_html)
-title = soup.find('class', 'story-heading').string
+soup = BeautifulSoup(r_html, "lxml")
+# title = soup.find_all("h2", {"class": "story-heading"})
+for div in soup.find_all("h2", {"class": "story-heading"}):
+    print(div.find("a").string)
 print(title)
-# print(r_html)
