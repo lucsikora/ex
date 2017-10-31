@@ -1,7 +1,7 @@
 # practicepython.py
 #
 # Solution by: Lukasz Sikora
-# Date: 30th October, 2017
+# Date: 31st October, 2017
 #
 #
 # Create a program that will play the “cows and bulls” game with the user. The game works like this:
@@ -23,4 +23,41 @@
 #   ...
 #
 # Until the user guesses the number.
+import random
+
+def gen_numb(size):
+    return random.sample([1,2,3,4,5,6,7,8,9,0], size)
+
+
+def get_usr_input():
+    while True:
+        usr_input = list(str(input("Write 4 digit number: ")))
+        usr_guess = list(map(int, usr_input))
+        return usr_guess
+
+
+def compare_numbers(gennerated, usr_guess):
+    cow = 0
+    bull = 0
+    for i in range(0, len(usr_guess)):
+        if usr_guess[i] in generated_number and usr_guess[i] == generated_number[i]:
+            cow += 1
+        elif usr_guess[i] in generated_number and not usr_guess[i] == generated_number[i]:
+            bull += 1
+    if cow == 4:
+        print("You Won!")
+    else:
+        print("You have ", cow, " Cows and ", bull, " Bulls")
+
+
+generated_number = list(gen_numb(4))
+print(generated_number)
+print(" ===== GUESS MY NUMBER =====")
+print("For every correct digit you got a bull, for every correct digit and its position you get a cow!")
+
+compare_numbers(gen_numb(4), get_usr_input())
+
+
+
+
 
