@@ -32,11 +32,16 @@ def gen_numb(size):
 def get_usr_input():
     while True:
         usr_input = list(str(input("Write 4 digit number: ")))
-        usr_guess = list(map(int, usr_input))
+        if len(usr_input) > 4:
+            print("We only need 4 digits so we will use: " ,usr_input[0:4])
+        elif len(usr_input) < 4:
+            print("We need more digits")
+            usr_input = list(str(input("Write 4 digit number: ")))
+        usr_guess = list(map(int, usr_input[0:4]))
         return usr_guess
 
 
-def compare_numbers(gennerated, usr_guess):
+def compare_numbers(generated_number, usr_guess):
     cow = 0
     bull = 0
     for i in range(0, len(usr_guess)):
@@ -46,8 +51,11 @@ def compare_numbers(gennerated, usr_guess):
             bull += 1
     if cow == 4:
         print("You Won!")
+        return True
     else:
         print("You have ", cow, " Cows and ", bull, " Bulls")
+        return False
+
 
 
 generated_number = list(gen_numb(4))
@@ -55,7 +63,8 @@ print(generated_number)
 print(" ===== GUESS MY NUMBER =====")
 print("For every correct digit you got a bull, for every correct digit and its position you get a cow!")
 
-compare_numbers(gen_numb(4), get_usr_input())
+while not compare_numbers(generated_number, get_usr_input()):
+    print("Keep guessing")
 
 
 
