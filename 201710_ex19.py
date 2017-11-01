@@ -1,7 +1,7 @@
 # practicepython.py
 #
 # Solution by: Lukasz Sikora
-# Date: 31st October, 2017
+# Date: 1st November, 2017
 #
 #
 # Using the requests and BeautifulSoup Python libraries, print to the screen the full text of the article
@@ -17,13 +17,29 @@
 #  exercise we will learn how to write this text to a .txt file.
 
 import requests
+# from __builtin__ import raw_input
 from bs4 import BeautifulSoup
 
-url = 'http://www.vanityfair.com/society/2014/06/monica-lewinsky-humiliation-culture'
-r = requests.get(url)
-r_html = r.text
+def getportions(soup):
+    heading = soup.find("div", {"class": "dek"})
+    if heading:
+        yield heading.text
 
-soup = BeautifulSoup(r_html, "html.parser")
-print(soup)
-for div in soup.find_all("section", {"class": "content-section"}):
-    print(div.find("p").string)
+    for p in soup.find_all("p", {"class": ""}):
+        yield p.text
+
+
+def parsepage(address):
+    page = requests.get(address)
+    soup = BeautifulSoup(page.text, "html.parser")
+
+    for s in getportions(soup):
+        print("\n%s" % s.encode("utf-8"))
+        input("\nPress enter to continue ")
+
+        # raw_input("\nPress enter to continue  ")
+    print("End of article")
+
+
+if __name__ == "__main__":
+    parsepage("http://www.vanityfair.com/style/society/2014/06/monica-lewinsky-humiliation-culture")
