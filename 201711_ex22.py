@@ -16,24 +16,24 @@
 # To do this, you’re going to have to remember a bit about string parsing in Python 3. I talked a little bit
 # about it in this post.
 
+
 def specify_name():
     return raw_input("Please specify name of file to be open: ")
 
+
 def readfile(filename="names_ex22"):
     with open(filename, 'r') as open_file:
-        count_darth = 0
-        count_luke = 0
-        count_lea = 0
+        licznik = {'Darth': 0, 'Luke': 0, 'Lea': 0}
         line = open_file.readline().rstrip()
         while line:
             if line == "Darth":
-                count_darth += 1
+                licznik['Darth'] += 1
             elif line == "Luke":
-                count_luke += 1
+                licznik['Luke'] += 1
             elif line == "Lea":
-                count_lea += 1
+                licznik['Lea'] += 1
             line = open_file.readline().rstrip()
-        print("Darth:", count_darth, "Luke:", count_luke, "Lea: ", count_lea)
+        print("Darth:", licznik['Darth'], "Luke:", licznik['Luke'], "Lea: ", licznik['Lea'])
 
 
 readfile(specify_name())
