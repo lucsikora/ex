@@ -15,14 +15,15 @@
 import requests
 from bs4 import BeautifulSoup
 
-def specify_file():
-    filename = input("Please specify file name: ")
-    return filename
+
+# def specify_file():
+#     filename = input("Please specify file name: ")
+#     return filename
 
 
 def save_to_file(file_content):
-    filename = specify_file()
-    with open(filename, 'w') as open_file:
+    # filename = specify_file()
+    with open('sample.txt', 'w') as open_file:
         open_file.write(file_content)
 
 
