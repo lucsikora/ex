@@ -1,7 +1,7 @@
 # practicepython.py
 #
 # Solution by: Lukasz Sikora
-# Date: 2nd November, 2017
+# Date: 3rd November, 2017
 #
 #
 # Take the code from the How To Decode A Website exercise (if you didn’t do it or just want to
@@ -16,15 +16,14 @@ import requests
 from bs4 import BeautifulSoup
 
 
-# def specify_file():
-#     filename = input("Please specify file name: ")
-#     return filename
+def specify_file():
+    filename = raw_input("Please specify file name: ")
+    return filename
 
 
-def save_to_file(file_content):
-    # filename = specify_file()
-    with open('sample.txt', 'w') as open_file:
-        open_file.write(file_content)
+def save_to_file(file_content, filename):
+    with open(filename, 'a') as open_file:
+        open_file.write(file_content.encode('utf-8') + "\n")
 
 
 def readpage():
@@ -33,13 +32,14 @@ def readpage():
 
     soup = BeautifulSoup(r.text, "html.parser")
     headings = soup.findAll("h2", {"class": "story-heading"})
+    final_file_name = specify_file()
 
     for heading in headings:
         if heading.findAll("a"):
-            save_to_file(heading.a.text.strip())
+            save_to_file(heading.a.text.strip(), final_file_name)
             # print(heading.a.text.strip())
         else:
-            save_to_file(heading.text)
+            save_to_file(heading.text, final_file_name)
             # print(heading.text)
 
 readpage()
