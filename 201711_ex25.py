@@ -21,24 +21,29 @@
 
 import math
 
-def usr_number():
-    number = int(input("Please specify number between 1 and 100: "))
-    return number
 
 def main():
     print("LETS PLAY A LITTLE GAME.\n Think about number between 1 and 100, I will try to guess it")
     lowest = 1
     highest = 100
+    counter = 1
     while True:
-        num = math.ceil(highest/2)
-        print("The number you're thinking is:", num )
-        usr_res = input("Choose command [lower][higher][yes][exit]")
+        num_range = list(range(lowest-1, highest+1))
+        num = num_range[math.floor(len(num_range)/2)]
+        print("The number you're thinking is:", num)
+        usr_res = input("Choose command [lower][higher][yes][exit]: ")
+
         if usr_res == 'lower':
             highest = num
-        elif usr_res == "higher":
+        elif usr_res == 'higher':
             lowest = num
+        elif usr_res == 'yes':
+            print("Computer guessed your number:", num, "after", counter, "tries")
+            break
+        elif usr_res == 'exit':
+            break
 
-
+        counter += 1
 
 if __name__ == "__main__":
     main()
