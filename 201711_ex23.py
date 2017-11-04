@@ -14,9 +14,6 @@
 
 
 def readfiles():
-    collection_one = []
-    collection_two = []
-
     with open('ex23_num1', 'r') as x:
         collection_one = [int(line.strip()) for line in x]
     with open('ex23_num2', 'r') as x:
