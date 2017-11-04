@@ -13,7 +13,7 @@
 # which I will describe below.)
 
 
-def readfiles():
+def main():
     with open('ex23_num1', 'r') as x:
         collection_one = [int(line.strip()) for line in x]
     with open('ex23_num2', 'r') as x:
@@ -22,4 +22,6 @@ def readfiles():
     overlap = [x for x in collection_one if x in collection_two]
     print(overlap)
 
-readfiles()
+
+if __name__ == "__main__":
+    main()
