@@ -26,10 +26,12 @@
 # Don’t worry about the case where TWO people have won - assume that in every board there will only be one winner.
 
 
-def check_win(board):
+def check_win(board, size):
     # We need to check 3 possible wins - vertical, horizontal and 45 degree crossed
+    for x in range(0,3):
+        if board[0][x]:
+            pass
 
-    #
     if board[0][0] == board[0][1] and board[0][0] == board[0][2]:
         print("Player wins")
     elif board[1][0] == board[1][1] and board[1][0] == board[1][2]:
