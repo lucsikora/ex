@@ -14,16 +14,21 @@
 #     Use binary search.
 
 
-def get_info():
-    user_list = list(input("Please write a list of numbers: "))
-    user_number = int(input("Plesae write a number your're looking for in a list: "))
-    #user_list = [1, 2, 3, 4, 5, 6, 7, 8]
-    #user_number = 5
-    #print(user_list)
-    if user_number in user_list:
+def check_list(l, n):
+    if n in l:
+        print("Its in the list")
         return True
     else:
+        print("Its NOT in the list")
         return False
 
+def get_info():
+    user_list = (input("Please write a list of numbers: ")).split(' ')
+    user_number = int(input("Please write a number your're looking for in a list: "))
+    user_int_list = [int(x) for x in user_list]
+    return user_int_list, user_number
 
-print(get_info())
+
+if __name__ == "__main__":
+    l, n = get_info()
+    check_list(l,n)
