@@ -14,18 +14,25 @@
 #     Use binary search.
 
 
+import random
+
 def check_list(l, n):
     if n in l:
-        print("Its in the list")
+        print("It's in the list")
         return True
     else:
-        print("Its NOT in the list")
+        print("It's NOT in the list")
         return False
 
 def get_info():
+    # user_list = [i for i in range(random.randrange(0, 1000))]
+    # print(user_list)
     user_list = (input("Please write a list of numbers: ")).split(' ')
-    user_number = int(input("Please write a number your're looking for in a list: "))
     user_int_list = [int(x) for x in user_list]
+    if user_list == "":
+        user_int_list = [i for i in range(random.randrange(0, 1000))]
+        print(user_int_list)
+    user_number = int(input("Please write a number your're looking for in a list: "))
     return user_int_list, user_number
 
 
