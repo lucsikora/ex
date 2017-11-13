@@ -34,11 +34,6 @@ def readpage():
     headings = soup.findAll("h2", {"class": "story-heading"})
     final_file_name = specify_file()
 
-
-    # test if finalname has correct name
-    print(final_file_name)
-
-
     for heading in headings:
         if heading.findAll("a"):
             save_to_file(heading.a.text.strip(), final_file_name)
@@ -47,4 +42,6 @@ def readpage():
             save_to_file(heading.text, final_file_name)
             # print(heading.text)
 
-readpage()
+
+if __name__ == "__main__":
+    readpage()
