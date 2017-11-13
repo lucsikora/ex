@@ -36,4 +36,5 @@ def readfile(filename="names_ex22"):
         print("Darth:", licznik['Darth'], "Luke:", licznik['Luke'], "Lea: ", licznik['Lea'])
 
 
-readfile(specify_name())
+if __name__ == "__main__":
+    readfile(specify_name())
